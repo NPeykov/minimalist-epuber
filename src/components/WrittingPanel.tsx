@@ -1,4 +1,4 @@
-const WrittingPannel = ({
+const WrittingPanel = ({
   text,
   setText,
 }: {
@@ -16,4 +16,4 @@ const WrittingPannel = ({
   )
 }
 
-export default WrittingPannel
+export default WrittingPanel

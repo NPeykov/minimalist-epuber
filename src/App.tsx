@@ -1,7 +1,7 @@
 import Background from './components/Background'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Pannels from './components/Pannels'
+import Panels from './components/Panels'
 import Title from './components/Title'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Background />
       <Title />
-      <Pannels />
+      <Panels />
       <Footer />
     </div>
   )

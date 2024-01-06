@@ -7,7 +7,7 @@ import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkBreaks from 'remark-breaks'
 import remarkGfm from 'remark-gfm'
 
-const PreviewPannel = ({ text }: { text: string }) => {
+const PreviewPanel = ({ text }: { text: string }) => {
   return (
     <div className="overflow-y-scroll p-2.5 font-mono text-white mx-2 border border-orange-400 rounded-lg">
       <Markdown
@@ -38,4 +38,4 @@ const PreviewPannel = ({ text }: { text: string }) => {
   )
 }
 
-export default PreviewPannel
+export default PreviewPanel
