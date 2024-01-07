@@ -1,3 +1,4 @@
+// TODO: change the text to include tables, images and see if it images can be added
 const INITIAL_TEXT: string = `## Syntax highlighting
 
 Here is an example of a plugin to highlight code:
