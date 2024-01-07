@@ -3,7 +3,7 @@ const INITIAL_TEXT: string = `## Syntax highlighting
 Here is an example of a plugin to highlight code:
 [\`rehype-highlight\`](https://github.com/rehypejs/rehype-highlight).
 
-\`\`\`js
+\`\`\`jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactMarkdown from 'react-markdown'
