@@ -1,4 +1,4 @@
-import PreviewButtons from './PreviewButtons'
+import WrittingButtons from './WrittingButtons'
 
 const WrittingPanel = ({
   text,
@@ -16,7 +16,7 @@ const WrittingPanel = ({
         onChange={({ target }) => setText(target.value)}
         value={text}
       />
-      <PreviewButtons />
+      <WrittingButtons />
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { ReactComponent as ResetIcon } from '../icons/reset.svg'
 import { ReactComponent as CleanIcon } from '../icons/clean.svg'
 import ButtonContainer from './ButtonContainer'
 
-const PreviewButtons = () => {
+const WrittingButtons = () => {
   return (
     <div className="flex flex-wrap justify-end items-center absolute w-full left-0 -bottom-[14px] gap-4">
       {/* NOTE: below justify can be remplaced by others type of justify */}
@@ -20,4 +20,4 @@ const PreviewButtons = () => {
   )
 }
 
-export default PreviewButtons
+export default WrittingButtons
