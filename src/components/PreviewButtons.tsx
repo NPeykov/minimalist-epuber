@@ -5,7 +5,7 @@ const PreviewButtons = () => {
   return (
     <div className="flex flex-wrap justify-end items-center absolute w-full left-0 -bottom-[14px]">
       {/* NOTE: below justify can be remplaced by others type of justify */}
-      <ButtonContainer text="Copy HTML code">
+      <ButtonContainer hoverText="Copy HTML code" onClick={() => {}}>
         <CopyHTMLIcon />
       </ButtonContainer>
     </div>

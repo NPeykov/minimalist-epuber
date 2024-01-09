@@ -8,6 +8,7 @@ const WrittingPanel = ({
   setText: React.Dispatch<React.SetStateAction<string>>
 }) => {
   return (
+    // TODO: fix blue border
     <div className="relative">
       <textarea
         spellCheck="false"
@@ -16,7 +17,7 @@ const WrittingPanel = ({
         onChange={({ target }) => setText(target.value)}
         value={text}
       />
-      <WrittingButtons />
+      <WrittingButtons text={text} setText={setText} />
     </div>
   )
 }
