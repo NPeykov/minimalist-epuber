@@ -1,8 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export const content = [
-  './src/**/*.{html,js,jsx,ts,tsx}',
-  './node_modules/flowbite/**/*.js',
-]
+export const content = ['./src/**/*.{html,js,jsx,ts,tsx}']
 export const darkMode = 'class'
 export const theme = {
   fontFamily: {
@@ -10,7 +7,4 @@ export const theme = {
   },
   extend: {},
 }
-export const plugins = [
-  require('@tailwindcss/typography'),
-  require('flowbite/plugin'),
-]
+export const plugins = [require('@tailwindcss/typography')]
