@@ -5,19 +5,17 @@ import ButtonContainer from './ButtonContainer'
 
 const PreviewButtons = () => {
   return (
-    <div className="flex flex-wrap justify-end items-center absolute w-full left-0 -bottom-[14px]">
+    <div className="flex flex-wrap justify-end items-center absolute w-full left-0 -bottom-[14px] gap-4">
       {/* NOTE: below justify can be remplaced by others type of justify */}
-      <div className="flex flex-wrap justify-center items-center gap-2">
-        <ButtonContainer text="Reset to default text">
-          <ResetIcon />
-        </ButtonContainer>
-        <ButtonContainer text="Copy Text">
-          <CleanIcon />
-        </ButtonContainer>
-        <ButtonContainer text="Copy Text">
-          <CopyIcon />
-        </ButtonContainer>
-      </div>
+      <ButtonContainer text="Reset to default text">
+        <ResetIcon />
+      </ButtonContainer>
+      <ButtonContainer text="Clean text">
+        <CleanIcon />
+      </ButtonContainer>
+      <ButtonContainer text="Copy Text">
+        <CopyIcon />
+      </ButtonContainer>
     </div>
   )
 }
