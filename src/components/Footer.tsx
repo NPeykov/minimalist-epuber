@@ -1,7 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="text-center text-orange-200/70 pt-8">
-      <p>{'this page was made with <3 and time'}</p>
+    <footer className="text-center text-white pt-8 mb-2">
+      <p>
+        Made by <span className="text-orange-400">@peyk0v</span>
+      </p>
     </footer>
   )
 }
