@@ -3,12 +3,17 @@ import { ReactComponent as CopyHTMLIcon } from '../icons/copyHTML.svg'
 
 const PreviewButtons = () => {
   const handleCopyHTML = () => {
-    // TODO: do logic
+    const node = document.querySelector('.react-markdown-text')
+    if (node) {
+      const html = node.innerHTML
+      navigator.clipboard.writeText(html)
+    } else {
+      console.log('error copying HTML')
+    }
   }
 
   return (
     <div className="flex justify-end items-center absolute w-full left-0 -bottom-[14px]">
-      {/* NOTE: below justify can be remplaced by others type of justify */}
       <ButtonContainer hoverText="Copy HTML code" onClick={handleCopyHTML}>
         <CopyHTMLIcon />
       </ButtonContainer>
