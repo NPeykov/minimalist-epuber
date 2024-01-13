@@ -11,7 +11,7 @@ import PreviewButtons from './PreviewButtons'
 const PreviewPanel = ({ text }: { text: string }) => {
   return (
     <div className="relative">
-      <div className="overflow-y-scroll w-full h-full p-2.5 font-mono text-white mx-2 border border-orange-400 rounded-lg">
+      <div className="overflow-y-scroll w-full h-full p-2.5 font-mono text-white mx-2 border border-orange-400 rounded-lg bg-zinc-950">
         <Markdown
           className="react-markdown-text w-full prose prose-invert prose-img:rounded-xl prose-a:text-blue-500 prose-pre:bg-transparent prose-pre:p-1 prose-code:bg-[#282C34] font-mono"
           children={text}

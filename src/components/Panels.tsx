@@ -4,7 +4,9 @@ import PreviewPanel from './PreviewPanel'
 import WrittingPanel from './WrittingPanel'
 
 const Panels = () => {
-  const [text, setText] = useState(INITIAL_TEXT)
+  const LSText = localStorage.getItem('text')
+  const _text: string = LSText !== null ? LSText : INITIAL_TEXT
+  const [text, setText] = useState(_text)
 
   return (
     <div className="h-3/4 w-5/6 grid grid-cols-2 gap-4 mx-auto">
