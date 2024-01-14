@@ -1,16 +1,21 @@
-import Background from './components/Background'
+import { useState } from 'react'
+import DarkBackground from './components/DarkBackground'
+import LightBackground from './components/LightBackground'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Panels from './components/Panels'
 import Title from './components/Title'
 
 function App() {
+  const LSTheme = localStorage.getItem('theme')
+  const [isDarkMode, setDarkMode] = useState(LSTheme === 'dark')
+
   return (
     <div className="flex flex-col h-screen justify-between">
-      <Header />
-      <Background />
+      <Header isDarkMode={isDarkMode} setDarkMode={setDarkMode} />
+      {isDarkMode ? <DarkBackground /> : <LightBackground />}
       <Title />
-      <Panels />
+      <Panels isDarkMode={isDarkMode} />
       <Footer />
     </div>
   )

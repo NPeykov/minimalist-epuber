@@ -1,22 +1,23 @@
-import { useState } from 'react'
 import { ReactComponent as GitHub } from '../icons/github.svg'
 import { ReactComponent as DarkModeIcon } from '../icons/darkMode.svg'
 import { ReactComponent as LightModeIcon } from '../icons/lightMode.svg'
 
-const Header = () => {
-  const LSTheme = localStorage.getItem('theme')
-  const [isDarkMode, setIsDarkMode] = useState(LSTheme === 'dark')
+const Header = ({
+  isDarkMode,
+  setDarkMode,
+}: {
+  isDarkMode: boolean
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-    const root = document.documentElement
-    root.classList.toggle('dark')
-    localStorage.setItem('theme', isDarkMode ? 'light' : 'dark')
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+    setDarkMode(!isDarkMode)
   }
 
   return (
     <div className="flex flex-row w-full justify-between px-4 py-4">
       <a
-        className="w-0 dark:text-white hover:text-orange-400"
+        className="w-0 text-zinc-100 dark:text-zinc-950 hover:text-orange-400"
         href="https://github.com/peyk0v"
         target="_blank"
         rel="noopener noreferrer"
@@ -24,10 +25,10 @@ const Header = () => {
         <GitHub />
       </a>
       <button
-        className="text-black dark:text-white hover:text-orange-400"
+        className="text-zinc-100 dark:text-zinc-950 hover:text-orange-400"
         onClick={() => toggleTheme()}
       >
-        {isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
+        {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
       </button>
     </div>
   )
