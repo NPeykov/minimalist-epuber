@@ -10,14 +10,16 @@ const Header = ({
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   const toggleTheme = () => {
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+    const root = window.document.documentElement
+    root.classList.toggle('dark')
+    localStorage.setItem('theme', isDarkMode ? 'light' : 'dark')
     setDarkMode(!isDarkMode)
   }
 
   return (
     <div className="flex flex-row w-full justify-between px-4 py-4">
       <a
-        className="w-0 text-zinc-100 dark:text-zinc-950 hover:text-orange-400"
+        className="w-0 text-zinc-950 dark:text-zinc-100 hover:text-orange-400"
         href="https://github.com/peyk0v"
         target="_blank"
         rel="noopener noreferrer"
@@ -25,7 +27,7 @@ const Header = ({
         <GitHub />
       </a>
       <button
-        className="text-zinc-100 dark:text-zinc-950 hover:text-orange-400"
+        className="text-zinc-950 dark:text-zinc-100 hover:text-orange-400"
         onClick={() => toggleTheme()}
       >
         {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
