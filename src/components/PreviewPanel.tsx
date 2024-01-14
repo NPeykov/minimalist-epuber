@@ -20,7 +20,7 @@ const PreviewPanel = ({
       <div className="overflow-y-scroll w-full h-full p-2.5 font-mono text-zinc-900 dark:text-zinc-100 mx-2 border border-orange-400 rounded-lg dark:bg-zinc-900 bg-zinc-50">
         <Markdown
           className="react-markdown-text w-full prose prose-invert prose-img:rounded-xl prose-a:text-blue-500 prose-pre:bg-transparent prose-pre:p-1 prose-code:bg-zinc-200 dark:prose-code:bg-[#282C34] prose-h1:text-zinc-900 prose-h2:text-zinc-900 prose-h3:text-zinc-900 prose-h4:text-zinc-900 dark:prose-h1:text-zinc-100 dark:prose-h2:text-zinc-100 dark:prose-h3:text-zinc-100 dark:prose-h4:text-zinc-100 font-mono text-zinc-900 dark:text-zinc-100"
-          children={text}
+          children={text.replace(/\n/gi, '\n &nbsp;').replace(/ /gi, '&nbsp;')}
           remarkPlugins={[remarkGfm, remarkBreaks]}
           components={{
             code(props) {
