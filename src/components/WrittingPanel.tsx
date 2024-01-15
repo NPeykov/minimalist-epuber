@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import WrittingButtons from './WrittingButtons'
 
 const WrittingPanel = ({
@@ -7,14 +8,62 @@ const WrittingPanel = ({
   text: string
   setText: React.Dispatch<React.SetStateAction<string>>
 }) => {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+
   const handleChange = (value: string): void => {
     setText(value)
     localStorage.setItem('text', value)
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Tab' && textareaRef.current) {
+      e.preventDefault()
+
+      const value = textareaRef.current.value
+      const selectionStart = textareaRef.current.selectionStart || 0
+      const selectionEnd = textareaRef.current.selectionEnd || 0
+
+      textareaRef.current.value =
+        value.substring(0, selectionStart) +
+        '    ' +
+        value.substring(selectionEnd)
+
+      textareaRef.current.selectionStart =
+        selectionEnd + 4 - (selectionEnd - selectionStart)
+      textareaRef.current.selectionEnd =
+        selectionEnd + 4 - (selectionEnd - selectionStart)
+
+      handleChange(textareaRef.current.value)
+    }
+  }
+
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  //   if (e.key === 'Tab') {
+  //     e.preventDefault()
+  //
+  //     const value = textareaRef.current?.value || ''
+  //     const selectionStart = textareaRef.current?.selectionStart || 0
+  //     const selectionEnd = textareaRef.current?.selectionEnd || 0
+  //
+  //     if (textareaRef.current) {
+  //       textareaRef.current.value =
+  //         value.substring(0, selectionStart) +
+  //         '    ' +
+  //         value.substring(selectionEnd)
+  //
+  //       textareaRef.current.selectionStart =
+  //         selectionEnd + 4 - (selectionEnd - selectionStart)
+  //       textareaRef.current.selectionEnd =
+  //         selectionEnd + 4 - (selectionEnd - selectionStart)
+  //     }
+  //   }
+  // }
+
   return (
     <div className="relative">
       <textarea
+        ref={textareaRef}
+        onKeyDown={handleKeyDown}
         spellCheck="false"
         // TODO: change background in this panel and in previews pannel
         className="overflow-y-scroll text-zinc-900 dark:text-zinc-100 w-full h-full p-2.5 bg-zinc-50 dark:bg-zinc-900 border border-solid rounded-lg border-orange-400 focus:border-orange-400 focus:ring-orange-400"
