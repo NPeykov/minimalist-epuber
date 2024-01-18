@@ -12,7 +12,7 @@ const Panels = ({ isDarkMode }: { isDarkMode: boolean }) => {
   }, [])
 
   return (
-    <div className="h-3/4 w-5/6 grid grid-cols-2 gap-4 mx-auto">
+    <div className="h-3/4 w-11/12 grid grid-cols-2 gap-4 mx-auto">
       <WrittingPanel text={text} setText={setText} />
       <PreviewPanel text={text} isDarkMode={isDarkMode} />
     </div>
