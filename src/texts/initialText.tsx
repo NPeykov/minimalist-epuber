@@ -16,6 +16,8 @@ ReactDOM.render(
 )
 \`\`\`
 
+The lift coefficient ($C_L^2$) is a dimensionless coefficient.
+
 Pretty neat, eh?`
 
 export default INITIAL_TEXT
