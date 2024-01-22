@@ -17,7 +17,7 @@ const Header = ({
   }
 
   return (
-    <div className="flex flex-row w-full justify-between px-4 py-4">
+    <div className="flex flex-row w-full justify-between px-4 pt-4">
       <a
         className="w-0 text-zinc-950 dark:text-zinc-100 hover:text-orange-400"
         href="https://github.com/peyk0v"
