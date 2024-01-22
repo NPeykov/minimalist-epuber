@@ -13,10 +13,12 @@ const WrittingButtons = ({
 }) => {
   const handleReset = () => {
     setText(INITIAL_TEXT)
+    localStorage.setItem('text', INITIAL_TEXT)
   }
 
   const handleClean = () => {
     setText('')
+    localStorage.setItem('text', '')
   }
 
   const handleCopy = () => {
