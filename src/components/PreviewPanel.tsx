@@ -22,8 +22,8 @@ const PreviewPanel = ({
   const LINE_BREAK_REGEX = /(?<!`)\n(?!(?:`+|$))/g
 
   const processedText = text
-    .replace(SPACE_REGEX, ' ')
-    .replace(LINE_BREAK_REGEX, '\u00A0\n')
+    .replace(SPACE_REGEX, '\u200b ')
+    .replace(LINE_BREAK_REGEX, '\u200b\n')
 
   return (
     <div className="relative">
