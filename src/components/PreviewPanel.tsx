@@ -22,14 +22,14 @@ const PreviewPanel = ({
   const LINE_BREAK_REGEX = /(?<!`)\n(?!(?:`+|$))/g
 
   const processedText = text
-    .replace(SPACE_REGEX, '\u00A0')
+    .replace(SPACE_REGEX, ' ')
     .replace(LINE_BREAK_REGEX, '\u00A0\n')
 
   return (
     <div className="relative">
-      <div className="overflow-y-scroll absolute w-full h-full p-2.5 font-mono text-zinc-900 dark:text-zinc-100 border border-orange-400 rounded-lg dark:bg-zinc-900 bg-zinc-50">
+      <div className="overflow-y-scroll overflow-x-hidden absolute w-full h-full p-2.5 font-mono text-zinc-900 dark:text-zinc-100 border border-orange-400 rounded-lg dark:bg-zinc-900 bg-zinc-50">
         <Markdown
-          className="react-markdown-text prose prose-invert prose-img:rounded-xl prose-a:text-blue-500 prose-pre:bg-transparent prose-pre:p-1 prose-code:bg-zinc-200 dark:prose-code:bg-[#282C34] prose-h1:text-zinc-900 prose-h2:text-zinc-900 prose-h3:text-zinc-900 prose-h4:text-zinc-900 dark:prose-h1:text-zinc-100 dark:prose-h2:text-zinc-100 dark:prose-h3:text-zinc-100 dark:prose-h4:text-zinc-100 font-mono text-zinc-900 dark:text-zinc-100"
+          className="react-markdown-text break-normal prose prose-invert prose-img:rounded-xl prose-a:text-blue-500 prose-pre:bg-transparent prose-pre:p-1 prose-code:bg-zinc-200 dark:prose-code:bg-[#282C34] prose-h1:text-zinc-900 prose-h2:text-zinc-900 prose-h3:text-zinc-900 prose-h4:text-zinc-900 dark:prose-h1:text-zinc-100 dark:prose-h2:text-zinc-100 dark:prose-h3:text-zinc-100 dark:prose-h4:text-zinc-100 font-mono text-zinc-900 dark:text-zinc-100"
           children={processedText}
           remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
           rehypePlugins={[rehypeKatex]}
