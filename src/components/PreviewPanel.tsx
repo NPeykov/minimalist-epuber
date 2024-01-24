@@ -10,6 +10,7 @@ import remarkMath from 'remark-math'
 import 'katex/dist/katex.min.css'
 import rehypeKatex from 'rehype-katex'
 import PreviewButtons from './PreviewButtons'
+import rehypeRaw from 'rehype-raw'
 
 const PreviewPanel = ({
   text,
@@ -18,23 +19,29 @@ const PreviewPanel = ({
   text: string
   isDarkMode: boolean
 }) => {
-  const SPACE_REGEX = /(?<!#+) /gm
-  const LINE_BREAK_REGEX = /(?<!`)\n(?!(?:`+|$))/g
+  // const SPACE_REGEX = /(?<!#+) /gm
+  // const LINE_BREAK_REGEX = /(?<!`)\n(?!(?:`+|$))/g
 
-  const processedText = text
-    .replace(SPACE_REGEX, '\u200b ')
-    .replace(LINE_BREAK_REGEX, '\u200b\n')
+  // const SPACE_REGEX = /(?<!`|[*]) (?![*]|`)/gm
+  // const LINE_BREAK_REGEX = /(?<!`|[*])\n(?![*]|`)/g
+
+  // const processedText = text
+  //   .replace(SPACE_REGEX, '\u200b ')
+  //   .replace(LINE_BREAK_REGEX, '\u200b\n')
+
+  const processedText = text.replace(/ /gi, ' ')
+  // .replace(/\n/g, '<br/>')
 
   return (
     <div className="relative">
       <div className="overflow-y-scroll overflow-x-hidden absolute w-full h-full p-2.5 font-mono text-zinc-900 dark:text-zinc-100 border border-orange-400 rounded-lg dark:bg-zinc-900 bg-zinc-50">
         <Markdown
-          className="react-markdown-text break-normal prose prose-invert prose-img:rounded-xl prose-a:text-blue-500 prose-pre:bg-transparent prose-pre:p-1 prose-code:bg-zinc-200 dark:prose-code:bg-[#282C34] prose-h1:text-zinc-900 prose-h2:text-zinc-900 prose-h3:text-zinc-900 prose-h4:text-zinc-900 dark:prose-h1:text-zinc-100 dark:prose-h2:text-zinc-100 dark:prose-h3:text-zinc-100 dark:prose-h4:text-zinc-100 font-mono text-zinc-900 dark:text-zinc-100"
+          className="react-markdown-text break-normal prose prose-invert prose-img:rounded-xl prose-a:text-blue-500 prose-pre:bg-transparent prose-pre:p-1 prose-code:bg-zinc-200 dark:prose-code:bg-[#282C34] prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-xl prose-h6:text-xl prose-h1:text-zinc-900 prose-h2:text-zinc-900 prose-h3:text-zinc-900 prose-h4:text-zinc-900 dark:prose-h1:text-zinc-100 dark:prose-h2:text-zinc-100 dark:prose-h3:text-zinc-100 dark:prose-h4:text-zinc-100 font-mono text-zinc-900 dark:text-zinc-100"
           children={processedText}
           remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
-          rehypePlugins={[rehypeKatex]}
+          rehypePlugins={[rehypeKatex, rehypeRaw as any]}
           key={text}
-          remarkRehypeOptions={{ allowDangerousHtml: false }}
+          remarkRehypeOptions={{ allowDangerousHtml: true }}
           components={{
             code(props) {
               const { children, className, node, ...rest } = props
